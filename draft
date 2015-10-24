@@ -1,0 +1,4 @@
+get pixel -> uint32 matrix
+greyscale the shit
+binarize the shit -> uint32 0(black) 255(white)
+modify binarize mat to bit mat -> uint8 0(white) 1(black)
