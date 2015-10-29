@@ -22,10 +22,23 @@ void  binarize(SDL_Surface *img)
   }
 }
 
-/* return a matrix filled with 0(white pixel) and 1(black)
+/*return a matrix filled with 0(white pixel) and 1(black)
 depending on the color of the pixel
 
 unsigned short M[] binary_mat(SDl_Surface *img)
 {
-  Uint8
-}*/
+  Uint8 val;
+  Uint32 pixel;
+  unsigned short M[];
+
+  for (int i = 0; i < img->w; i++)
+  {
+    for (int j = 0; j < img->h; j++)
+    {
+      pixel = getpixel(img, i, j);
+      SDL_GetRGB(pixel, img->format, &val, &val, &val);
+      if (val < 128)
+        
+    }
+  }
+} */
