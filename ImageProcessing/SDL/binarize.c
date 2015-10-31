@@ -22,23 +22,28 @@ void  binarize(SDL_Surface *img)
   }
 }
 
-/*return a matrix filled with 0(white pixel) and 1(black)
-depending on the color of the pixel
+/*return a dyn_linear_matrix filled with 0(black pixel) and 1(white)
+for pixel M[n],  x is obtained with n % width,
+y is obtained with n / witdh */
 
-unsigned short M[] binary_mat(SDl_Surface *img)
+unsigned short* binary_mat(SDL_Surface *img)
 {
   Uint8 val;
   Uint32 pixel;
-  unsigned short M[];
+  unsigned short* mat;
+  mat = malloc(img->w * img->h * sizeof(unsigned short));
 
-  for (int i = 0; i < img->w; i++)
+  for (int y = 0; y < img->h; y++)
   {
-    for (int j = 0; j < img->h; j++)
+    for (int x = 0; x < img->w; x++)
     {
-      pixel = getpixel(img, i, j);
+      pixel = getpixel(img, x, y);
       SDL_GetRGB(pixel, img->format, &val, &val, &val);
       if (val < 128)
-        
+        mat[img->w * y + x] = 0;
+      else
+        mat[img->w * y + x] = 1;
     }
   }
-} */
+  return mat;
+}

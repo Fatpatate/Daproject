@@ -3,10 +3,10 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-# include <SDL>
-# include "pixel_operation.h"
+# include <SDL.h>
+# include "pixel_operations.h"
 
 void binarize(SDL_Surface *img);
-unsigned short M[] binary_mat(SDL_Surface *img);
+unsigned short* binary_mat(SDL_Surface *img);
 
 # endif

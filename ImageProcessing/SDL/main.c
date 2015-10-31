@@ -3,6 +3,7 @@
 # include<err.h>
 # include"pixel_operations.h"
 # include "grayscale.h"
+# include "binarize.h"
 # include <stddef.h>
 
 void wait_for_keypressed(void)
@@ -68,6 +69,17 @@ SDL_Surface* display_image(SDL_Surface *img)
   return screen;
 }
 
+void print_mat(unsigned short *mat, int width, int height)
+{
+  for (int i = 0; i < height; i++)
+  {
+    printf("|");
+    for (int j = 0; j < width; j++)
+      printf(" %u |", mat[width * i + j]);
+    printf("\n");
+  }
+}
+
 int main(int argc, char *argv[])
 {
   if(argc < 2)
@@ -76,6 +88,7 @@ int main(int argc, char *argv[])
   SDL_Surface *img = load_image(argv[1]);
   display_image(img);
   gray_scale(img);
+  //print_mat(binary_mat(img), img->w, img->h);
   display_image(img);
   SDL_FreeSurface(img);
 }

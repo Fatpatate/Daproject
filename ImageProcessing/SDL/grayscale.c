@@ -19,3 +19,22 @@ void gray_scale(SDL_Surface *img)
     }
   }
 }
+
+unsigned short* mat(SDL_Surface *img)
+{
+  Uint8 val;
+  Uint32 pixel;
+  unsigned short* mat;
+  mat = malloc(img->w * img->h * sizeof(unsigned short));
+
+  for (int y = 0; y < img->h; y++)
+  {
+    for (int x = 0; x < img->w; x++)
+    {
+      pixel = getpixel(img, x, y);
+      SDL_GetRGB(pixel, img->format, &val, &val, &val);
+      mat[img->w * y + x] = val;
+    }
+  }
+  return mat;
+}

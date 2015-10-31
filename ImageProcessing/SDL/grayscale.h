@@ -6,5 +6,6 @@
 # include "pixel_operations.h"
 
 void gray_scale(SDL_Surface *img);
+unsigned short* mat(SDL_Surface *img);
 
 #endif
